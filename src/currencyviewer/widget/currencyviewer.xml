@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget id="CurrencyViewer.widget.currencyviewer" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/">
+    <name>Currency Viewer</name>
+    <description>Lets you show an integer with a currency symbol.</description>
+    <icon>
+    iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABAUlEQVR42mNgwA3s
+    GBgY/iNhO2yKGPEY8P/n57sMXx8vZmBgYGAQ0mrAqp4FjwEMsyYWMrx684Xh6s2X
+    cEOhtD0DA8MhBgLg//c3x/5vWZjwH+qa/++uNfx/d63hP5JB+F2wd+sshis3XqC4
+    5sPH7yhqmPAZ4OydxqCjIcHAwMDAkJJRwWBuKMcgLcFPvAHILoCx7z16R3wguvgX
+    MzAw9MJdw8AwC0MNE74437Oxl2gXHESL84MMDAwMjq6hDAwMqzFcg9ULWEI5j1vK
+    exKMM6GzlIGBgQHDBTDgjuaFUGxxv2Vhwv+OSg+UdIA3KU9u8YO7avL848hyRKVE
+    bK4ahAAAQZWQ5kD1AKUAAAAASUVORK5CYII=
+    </icon>
+    <properties>
+        <property key="name" type="attribute">
+            <caption>Attribute</caption>
+            <category>Data source</category>
+            <description>The attribute to display.</description> 
+            <attributeTypes>
+                <attributeType name="Integer"/>
+                <attributeType name="Currency"/>
+                <attributeType name="Float"/>
+                <attributeType name="Decimal"/>
+            </attributeTypes>
+        </property>
+        <property key="currencyType" type="enumeration" required="true" defaultValue="Euro">
+            <caption>Currency type</caption>
+            <category>Data source</category>
+            <description>The currency type to show.</description>
+            <enumerationValues>
+                <enumerationValue key="Euro">Euro</enumerationValue>
+                <enumerationValue key="Dollar">Dollar</enumerationValue>
+                <enumerationValue key="Pound">Pound</enumerationValue>
+                <enumerationValue key="Yen">Yen</enumerationValue>
+            </enumerationValues>    
+        </property>
+        <property key="useSeparators" type="boolean" defaultValue="true">
+            <caption>Group separators</caption>
+            <category>Data source</category>
+            <description>Use group separators.</description> 
+        </property>
+    </properties>
+</widget>

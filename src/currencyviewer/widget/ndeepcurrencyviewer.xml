@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget id="CurrencyViewer.widget.ndeepcurrencyviewer" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/">
+    <name>N-Deep Currency Viewer</name>
+    <description>Lets you show an integer with a currency symbol.</description>
+    <icon>
+    iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2Fy
+    ZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAS9JREFUeNpi+P//PwM6Pnjw4H8GBgY4
+    BvGxqQNhRhCBDhgZGf///HyX4evjxWC+kFYDSDEjAxbAwoADzJpYyPDqzReGqzdf
+    wg0F0UDXMNjZ2SEMw+YskPD3N8f+b1mYAPYC0DX/311rAGOIFoRanC7Yu3UWw5Ub
+    L1Bc8+Hjdwx1TLgMcPZOY9DRkACzUzIqGMwN5RikJfiJNwDZBTD2vUfvMBXiCoMf
+    Hy7DwyAtMQhMWxjJwaJ2GpzGFucgGqS5o9IDLg4KVGR1MD6Lvb09A2qc24NpR9dQ
+    ILkaxbVATQycIlaY6QA9lCdNmsTALeXNQBTYsWMHitNWrVqFNe5hTkanWdzd3bEl
+    5/+44h7kBZBX8CZloKsYPDw8iPMCrlyGLWkjRyGcT6QB8HhH5wMEGABRElgQ/Iq8
+    3AAAAABJRU5ErkJggg==
+    </icon>
+    <properties>
+        <property key="currencyEntity" type="entity">
+            <caption>Entity</caption>
+            <category>Data source</category>
+            <description>The entity that holds the currency.</description> 
+        </property>
+        <property key="currencyAttr" type="attribute" entityProperty="currencyEntity">
+            <caption>Attribute</caption>
+            <category>Data source</category>
+            <description>The attribute to display.</description> 
+            <attributeTypes>
+                <attributeType name="Integer"/>
+                <attributeType name="Currency"/>
+                <attributeType name="Float"/>
+                <attributeType name="Decimal"/>
+            </attributeTypes>
+        </property>
+        <property key="currencyAssoc" type="entityConstraint" entityProperty="currencyEntity" required="false">
+            <caption>Association</caption>
+            <category>Data source</category>
+            <description>The association(s) to reach the entity from your dataview entity.</description> 
+        </property>
+        <property key="currencyType" type="enumeration" defaultValue="Euro">
+            <caption>Currency type</caption>
+            <category>Data source</category>
+            <description>The currency type to show.</description>
+            <enumerationValues>
+                <enumerationValue key="Euro">Euro</enumerationValue>
+                <enumerationValue key="Dollar">Dollar</enumerationValue>
+                <enumerationValue key="Pound">Pound</enumerationValue>
+                <enumerationValue key="Yen">Yen</enumerationValue>
+            </enumerationValues>    
+        </property>
+        <property key="useSeparators" type="boolean" defaultValue="true">
+            <caption>Group separators</caption>
+            <category>Data source</category>
+            <description>Use group separators.</description> 
+        </property>
+    </properties>
+</widget>
