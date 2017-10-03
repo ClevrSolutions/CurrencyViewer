@@ -1,8 +1,12 @@
-dojo.provide("CurrencyViewer.widget.ndeepcurrencyviewer");
+define([
+	'dojo/_base/declare',
+	"dijit/_Container",
+	"dijit/_TemplatedMixin",
+	'mxui/widget/_WidgetBase'
+], function (declare, _Container, _WidgetBase, _TemplatedMixin) {
+	'use strict';
 
-mendix.widget.declare("CurrencyViewer.widget.ndeepcurrencyviewer", {
-    addons     : [dijit._Templated,	dijit._Contained, mendix.addon._Contextable],
-  
+return declare('CurrencyViewer.widget.ndeepcurrencyviewer', [_WidgetBase, _Container, _TemplatedMixin], {
     inputargs  : {
         currencyAttr	: '',
 		currencyEntity	: '',
@@ -38,11 +42,10 @@ mendix.widget.declare("CurrencyViewer.widget.ndeepcurrencyviewer", {
 					xpath : pathXpath,
 					error : function(error) { alert(error);},
 					callback : dojo.hitch(this, function(object) {
-									this.showCurrency(object[0].getAttribute(this.currencyAttr));
+									this.showCurrency(object[0].get(this.currencyAttr));
 									})
 				});
-			} else {
-				this.showCurrency(context.getAttribute(this.currencyAttr));
+			} else {(this.currencyAttr);
 			}
 		}
 	},
@@ -72,3 +75,5 @@ mendix.widget.declare("CurrencyViewer.widget.ndeepcurrencyviewer", {
     uninitialize : function(){
     }
 });
+});
+require(['CurrencyViewer/widget/ndeepcurrencyviewer']);
