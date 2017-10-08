@@ -2,8 +2,10 @@ define([
 	'dojo/_base/declare',
 	"dijit/_Container",
 	"dijit/_TemplatedMixin",
-	'mxui/widget/_WidgetBase'
-], function (declare, _Container, _WidgetBase, _TemplatedMixin) {
+	'mxui/widget/_WidgetBase',
+	"dojo/dom-construct",
+	"dojo/_base/lang",
+], function (declare, _Container, _WidgetBase, _TemplatedMixin, construct, lang) {
 	'use strict';
 
 return declare('CurrencyViewer.widget.ndeepcurrencyviewer', [_WidgetBase, _Container, _TemplatedMixin], {
@@ -27,13 +29,13 @@ return declare('CurrencyViewer.widget.ndeepcurrencyviewer', [_WidgetBase, _Conta
     },
     applyContext : function(context, callback){
         if (context)
-            mx.processor.getObject(context.getActiveGUID(), dojo.hitch(this, this.checkForPath));
+            mx.processor.getObject(context.getActiveGUID(), lang.hitch(this, this.checkForPath));
         else
             logger.warn(this.id + ".applyContext received empty context");
         callback && callback();
     },
 	checkForPath : function (context) {
-		dojo.empty(this.divNode);
+		construct.empty(this.divNode);
 		if (context != '' && typeof context != "undefined")	{
 			if (this.currencyAssoc) {
 				var newAssoc = this.currencyAssoc.replace('[%CurrentObject%]', context.getGUID());
@@ -41,7 +43,7 @@ return declare('CurrencyViewer.widget.ndeepcurrencyviewer', [_WidgetBase, _Conta
 				mx.processor.get({
 					xpath : pathXpath,
 					error : function(error) { alert(error);},
-					callback : dojo.hitch(this, function(object) {
+					callback : lang.hitch(this, function(object) {
 									this.showCurrency(object[0].get(this.currencyAttr));
 									})
 				});
@@ -50,7 +52,7 @@ return declare('CurrencyViewer.widget.ndeepcurrencyviewer', [_WidgetBase, _Conta
 		}
 	},
 	showCurrency : function (currency) {
-		dojo.empty(this.domNode);
+		construct.empty(this.domNode);
 		currency = mx.parser.formatValue(currency, "currency");
 		var container = mendix.dom.label();
 		switch(this.currencyType) {

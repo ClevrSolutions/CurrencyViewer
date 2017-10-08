@@ -1,17 +1,14 @@
 {
   "name": "currency-viewer",
   "widgetName": "CurrencyViewer",
-  "version": "0.1",
+  "version": "1.0.0",
   "description": "",
   "copyright": "Mendix BV",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/MansystemsCorp/CurrencyViewer"
   },
   "license": "Apache-2.0",
-  "bugs": {
-    "url": ""
-  },
   "devDependencies": {
     "grunt": "1.0.1",
     "grunt-check-dependencies": "^1.0.0",
