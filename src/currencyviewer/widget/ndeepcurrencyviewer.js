@@ -24,12 +24,13 @@ return declare('CurrencyViewer.widget.ndeepcurrencyviewer', [_WidgetBase, _Conta
 	realContext			: null,
 
     postCreate : function(){
-        this.initContext();
-        this.actRendered();
     },
     applyContext : function(context, callback){
         if (context)
-            mx.processor.getObject(context.getActiveGUID(), lang.hitch(this, this.checkForPath));
+			mx.data.get({
+				guids: context.getTrackId(),
+				callback: lang.hitch(this, this.checkForPath)
+			});
         else
             logger.warn(this.id + ".applyContext received empty context");
         callback && callback();
@@ -40,7 +41,7 @@ return declare('CurrencyViewer.widget.ndeepcurrencyviewer', [_WidgetBase, _Conta
 			if (this.currencyAssoc) {
 				var newAssoc = this.currencyAssoc.replace('[%CurrentObject%]', context.getGUID());
 				var pathXpath = '//' + this.currencyEntity + newAssoc;
-				mx.processor.get({
+				mx.data.get({
 					xpath : pathXpath,
 					error : function(error) { alert(error);},
 					callback : lang.hitch(this, function(object) {

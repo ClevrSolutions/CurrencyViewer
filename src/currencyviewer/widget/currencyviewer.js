@@ -1,13 +1,12 @@
 define([
 	'dojo/_base/declare',
-	"dijit/_Container",
 	'mxui/widget/_WidgetBase',
 	"dojo/dom-class",
 	"dojo/dom-construct"
-], function (declare, _Container, _WidgetBase, domClass, domConstruct) {
+], function (declare, _WidgetBase, domClass, domConstruct) {
 	'use strict';
 
-return declare('CurrencyViewer.widget.currencyviewer', [_WidgetBase, _Container], {
+return declare('CurrencyViewer.widget.currencyviewer', [_WidgetBase], {
 	inputargs  : {
 	name	 		: '',
 	currencyType    : '',
@@ -18,8 +17,6 @@ currencyBox			: null,
 
 postCreate : function(){
 	domClass.add(this.domNode, 'currencyviewer_widget');
-	// this.initContext();
-	// this.actRendered();
 },
 
 applyContext : function(context, callback){
